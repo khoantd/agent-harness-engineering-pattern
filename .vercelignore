@@ -1,0 +1,12 @@
+.codegraph
+.cursor
+.claude
+.kiro
+.agents
+.agent
+agent-transcripts
+legacy
+out
+.next
+*.log
+.git

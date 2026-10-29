@@ -1,0 +1,1257 @@
+[
+  {
+    "id": "agent-loop",
+    "number": "01",
+    "title": "The Agent Loop",
+    "patterns": [
+      {
+        "id": "game-loop",
+        "number": "1.01",
+        "title": "Game Loop",
+        "search_name": "game loop"
+      },
+      {
+        "id": "update-method",
+        "number": "1.02",
+        "title": "Update Method",
+        "search_name": "update method"
+      },
+      {
+        "id": "state",
+        "number": "1.03",
+        "title": "State",
+        "search_name": "state"
+      },
+      {
+        "id": "template-method",
+        "number": "1.04",
+        "title": "Template Method",
+        "search_name": "template method"
+      },
+      {
+        "id": "chain-of-responsibility",
+        "number": "1.05",
+        "title": "Chain of Responsibility",
+        "search_name": "chain of responsibility"
+      },
+      {
+        "id": "interpreter",
+        "number": "1.06",
+        "title": "Interpreter",
+        "search_name": "interpreter"
+      },
+      {
+        "id": "memento",
+        "number": "1.07",
+        "title": "Memento",
+        "search_name": "memento"
+      },
+      {
+        "id": "iterator",
+        "number": "1.08",
+        "title": "Iterator",
+        "search_name": "iterator"
+      },
+      {
+        "id": "composite",
+        "number": "1.09",
+        "title": "Composite",
+        "search_name": "composite"
+      },
+      {
+        "id": "visitor",
+        "number": "1.10",
+        "title": "Visitor",
+        "search_name": "visitor"
+      },
+      {
+        "id": "acyclic-visitor",
+        "number": "1.11",
+        "title": "Acyclic Visitor",
+        "search_name": "acyclic visitor"
+      },
+      {
+        "id": "double-dispatch",
+        "number": "1.12",
+        "title": "Double Dispatch",
+        "search_name": "double dispatch"
+      },
+      {
+        "id": "callback",
+        "number": "1.13",
+        "title": "Callback",
+        "search_name": "callback"
+      },
+      {
+        "id": "context-object",
+        "number": "1.14",
+        "title": "Context Object",
+        "search_name": "context object"
+      },
+      {
+        "id": "collecting-parameter",
+        "number": "1.15",
+        "title": "Collecting Parameter",
+        "search_name": "collecting parameter"
+      },
+      {
+        "id": "pipeline",
+        "number": "1.16",
+        "title": "Pipeline",
+        "search_name": "pipeline"
+      },
+      {
+        "id": "rule-engine",
+        "number": "1.17",
+        "title": "Rule Engine",
+        "search_name": "rule engine"
+      },
+      {
+        "id": "trampoline",
+        "number": "1.18",
+        "title": "Trampoline",
+        "search_name": "trampoline"
+      }
+    ]
+  },
+  {
+    "id": "tool-system",
+    "number": "02",
+    "title": "The Tool System",
+    "patterns": [
+      {
+        "id": "command",
+        "number": "2.01",
+        "title": "Command",
+        "search_name": "command"
+      },
+      {
+        "id": "strategy",
+        "number": "2.02",
+        "title": "Strategy",
+        "search_name": "strategy"
+      },
+      {
+        "id": "adapter",
+        "number": "2.03",
+        "title": "Adapter",
+        "search_name": "adapter"
+      },
+      {
+        "id": "converter",
+        "number": "2.04",
+        "title": "Converter",
+        "search_name": "converter"
+      },
+      {
+        "id": "facade",
+        "number": "2.05",
+        "title": "Facade",
+        "search_name": "facade"
+      },
+      {
+        "id": "registry",
+        "number": "2.06",
+        "title": "Registry",
+        "search_name": "registry"
+      },
+      {
+        "id": "factory",
+        "number": "2.07",
+        "title": "Factory",
+        "search_name": "factory"
+      },
+      {
+        "id": "factory-method",
+        "number": "2.08",
+        "title": "Factory Method",
+        "search_name": "factory method"
+      },
+      {
+        "id": "abstract-factory",
+        "number": "2.09",
+        "title": "Abstract Factory",
+        "search_name": "abstract factory"
+      },
+      {
+        "id": "factory-kit",
+        "number": "2.10",
+        "title": "Factory Kit",
+        "search_name": "factory kit"
+      },
+      {
+        "id": "builder",
+        "number": "2.11",
+        "title": "Builder",
+        "search_name": "builder"
+      },
+      {
+        "id": "step-builder",
+        "number": "2.12",
+        "title": "Step Builder",
+        "search_name": "step builder"
+      },
+      {
+        "id": "prototype",
+        "number": "2.13",
+        "title": "Prototype",
+        "search_name": "prototype"
+      },
+      {
+        "id": "proxy",
+        "number": "2.14",
+        "title": "Proxy",
+        "search_name": "proxy"
+      },
+      {
+        "id": "virtual-proxy",
+        "number": "2.15",
+        "title": "Virtual Proxy",
+        "search_name": "virtual proxy"
+      },
+      {
+        "id": "dynamic-proxy",
+        "number": "2.16",
+        "title": "Dynamic Proxy",
+        "search_name": "dynamic proxy"
+      },
+      {
+        "id": "decorator",
+        "number": "2.17",
+        "title": "Decorator",
+        "search_name": "decorator"
+      },
+      {
+        "id": "delegation",
+        "number": "2.18",
+        "title": "Delegation",
+        "search_name": "delegation"
+      },
+      {
+        "id": "servant",
+        "number": "2.19",
+        "title": "Servant",
+        "search_name": "servant"
+      },
+      {
+        "id": "null-object",
+        "number": "2.20",
+        "title": "Null Object",
+        "search_name": "null object"
+      },
+      {
+        "id": "special-case",
+        "number": "2.21",
+        "title": "Special Case",
+        "search_name": "special case"
+      },
+      {
+        "id": "extension-objects",
+        "number": "2.22",
+        "title": "Extension Objects",
+        "search_name": "extension objects"
+      },
+      {
+        "id": "marker-interface",
+        "number": "2.23",
+        "title": "Marker Interface",
+        "search_name": "marker interface"
+      },
+      {
+        "id": "type-object",
+        "number": "2.24",
+        "title": "Type Object",
+        "search_name": "type object"
+      },
+      {
+        "id": "bytecode",
+        "number": "2.25",
+        "title": "Bytecode",
+        "search_name": "bytecode"
+      },
+      {
+        "id": "abstract-document",
+        "number": "2.26",
+        "title": "Abstract Document",
+        "search_name": "abstract document"
+      },
+      {
+        "id": "property",
+        "number": "2.27",
+        "title": "Property",
+        "search_name": "property"
+      },
+      {
+        "id": "parameter-object",
+        "number": "2.28",
+        "title": "Parameter Object",
+        "search_name": "parameter object"
+      },
+      {
+        "id": "execute-around",
+        "number": "2.29",
+        "title": "Execute Around",
+        "search_name": "execute around"
+      },
+      {
+        "id": "fluent-interface",
+        "number": "2.30",
+        "title": "Fluent Interface",
+        "search_name": "fluent interface"
+      }
+    ]
+  },
+  {
+    "id": "llm-layer",
+    "number": "03",
+    "title": "The Model Call Layer",
+    "patterns": [
+      {
+        "id": "gateway",
+        "number": "3.01",
+        "title": "Gateway",
+        "search_name": "gateway"
+      },
+      {
+        "id": "ambassador",
+        "number": "3.02",
+        "title": "Ambassador",
+        "search_name": "ambassador"
+      },
+      {
+        "id": "bridge",
+        "number": "3.03",
+        "title": "Bridge",
+        "search_name": "bridge"
+      },
+      {
+        "id": "retry",
+        "number": "3.04",
+        "title": "Retry",
+        "search_name": "retry"
+      },
+      {
+        "id": "fallback",
+        "number": "3.05",
+        "title": "Fallback",
+        "search_name": "fallback"
+      },
+      {
+        "id": "circuit-breaker",
+        "number": "3.06",
+        "title": "Circuit Breaker",
+        "search_name": "circuit breaker"
+      },
+      {
+        "id": "rate-limiting",
+        "number": "3.07",
+        "title": "Rate Limiting",
+        "search_name": "rate limiting"
+      },
+      {
+        "id": "throttling",
+        "number": "3.08",
+        "title": "Throttling",
+        "search_name": "throttling"
+      },
+      {
+        "id": "load-shedding",
+        "number": "3.09",
+        "title": "Load Shedding",
+        "search_name": "load shedding"
+      },
+      {
+        "id": "backpressure",
+        "number": "3.10",
+        "title": "Backpressure",
+        "search_name": "backpressure"
+      },
+      {
+        "id": "queue-based-load-leveling",
+        "number": "3.11",
+        "title": "Queue-Based Load Leveling",
+        "search_name": "queue-based load leveling"
+      },
+      {
+        "id": "caching",
+        "number": "3.12",
+        "title": "Caching",
+        "search_name": "caching"
+      },
+      {
+        "id": "object-pool",
+        "number": "3.13",
+        "title": "Object Pool",
+        "search_name": "object pool"
+      },
+      {
+        "id": "multiton",
+        "number": "3.14",
+        "title": "Multiton",
+        "search_name": "multiton"
+      },
+      {
+        "id": "singleton",
+        "number": "3.15",
+        "title": "Singleton",
+        "search_name": "singleton"
+      },
+      {
+        "id": "tolerant-reader",
+        "number": "3.16",
+        "title": "Tolerant Reader",
+        "search_name": "tolerant reader"
+      },
+      {
+        "id": "partial-response",
+        "number": "3.17",
+        "title": "Partial Response",
+        "search_name": "partial response"
+      },
+      {
+        "id": "money",
+        "number": "3.18",
+        "title": "Money",
+        "search_name": "money"
+      }
+    ]
+  },
+  {
+    "id": "memory",
+    "number": "04",
+    "title": "Context and Memory",
+    "patterns": [
+      {
+        "id": "repository",
+        "number": "4.01",
+        "title": "Repository",
+        "search_name": "repository"
+      },
+      {
+        "id": "dao",
+        "number": "4.02",
+        "title": "DAO",
+        "search_name": "data access object (dao)"
+      },
+      {
+        "id": "dao-factory",
+        "number": "4.03",
+        "title": "DAO Factory",
+        "search_name": "dao factory"
+      },
+      {
+        "id": "data-mapper",
+        "number": "4.04",
+        "title": "Data Mapper",
+        "search_name": "data mapper"
+      },
+      {
+        "id": "dto",
+        "number": "4.05",
+        "title": "DTO",
+        "search_name": "data transfer object (dto)"
+      },
+      {
+        "id": "value-object",
+        "number": "4.06",
+        "title": "Value Object",
+        "search_name": "value object"
+      },
+      {
+        "id": "composite-entity",
+        "number": "4.07",
+        "title": "Composite Entity",
+        "search_name": "composite entity"
+      },
+      {
+        "id": "unit-of-work",
+        "number": "4.08",
+        "title": "Unit of Work",
+        "search_name": "unit of work"
+      },
+      {
+        "id": "identity-map",
+        "number": "4.09",
+        "title": "Identity Map",
+        "search_name": "identity map"
+      },
+      {
+        "id": "lazy-loading",
+        "number": "4.10",
+        "title": "Lazy Loading",
+        "search_name": "lazy loading"
+      },
+      {
+        "id": "flyweight",
+        "number": "4.11",
+        "title": "Flyweight",
+        "search_name": "flyweight"
+      },
+      {
+        "id": "write-ahead-log",
+        "number": "4.12",
+        "title": "Write-Ahead Log",
+        "search_name": "write-ahead log"
+      },
+      {
+        "id": "event-sourcing",
+        "number": "4.13",
+        "title": "Event Sourcing",
+        "search_name": "event sourcing"
+      },
+      {
+        "id": "dirty-flag",
+        "number": "4.14",
+        "title": "Dirty Flag",
+        "search_name": "dirty flag"
+      },
+      {
+        "id": "serialized-entity",
+        "number": "4.15",
+        "title": "Serialized Entity",
+        "search_name": "serialized entity"
+      },
+      {
+        "id": "serialized-lob",
+        "number": "4.16",
+        "title": "Serialized LOB",
+        "search_name": "serialized lob"
+      },
+      {
+        "id": "metadata-mapping",
+        "number": "4.17",
+        "title": "Metadata Mapping",
+        "search_name": "metadata mapping"
+      },
+      {
+        "id": "single-table-inheritance",
+        "number": "4.18",
+        "title": "Single Table Inheritance",
+        "search_name": "single table inheritance"
+      },
+      {
+        "id": "table-inheritance",
+        "number": "4.19",
+        "title": "Table Inheritance",
+        "search_name": "table inheritance"
+      },
+      {
+        "id": "optimistic-offline-lock",
+        "number": "4.20",
+        "title": "Optimistic Offline Lock",
+        "search_name": "optimistic offline lock"
+      },
+      {
+        "id": "version-number",
+        "number": "4.21",
+        "title": "Version Number",
+        "search_name": "version number"
+      },
+      {
+        "id": "sharding",
+        "number": "4.22",
+        "title": "Sharding",
+        "search_name": "sharding"
+      },
+      {
+        "id": "client-session",
+        "number": "4.23",
+        "title": "Client Session",
+        "search_name": "client session"
+      },
+      {
+        "id": "server-session",
+        "number": "4.24",
+        "title": "Server Session",
+        "search_name": "server session"
+      }
+    ]
+  },
+  {
+    "id": "multi-agent",
+    "number": "05",
+    "title": "Multi-Agent Orchestration",
+    "patterns": [
+      {
+        "id": "actor-model",
+        "number": "5.01",
+        "title": "Actor Model",
+        "search_name": "actor model"
+      },
+      {
+        "id": "mediator",
+        "number": "5.02",
+        "title": "Mediator",
+        "search_name": "mediator"
+      },
+      {
+        "id": "master-worker",
+        "number": "5.03",
+        "title": "Master-Worker",
+        "search_name": "master-worker"
+      },
+      {
+        "id": "fork-join",
+        "number": "5.04",
+        "title": "Fork/Join",
+        "search_name": "fork/join"
+      },
+      {
+        "id": "fan-out-fan-in",
+        "number": "5.05",
+        "title": "Fan-Out/Fan-In",
+        "search_name": "fan-out/fan-in"
+      },
+      {
+        "id": "mapreduce",
+        "number": "5.06",
+        "title": "MapReduce",
+        "search_name": "mapreduce"
+      },
+      {
+        "id": "leader-followers",
+        "number": "5.07",
+        "title": "Leader-Followers",
+        "search_name": "leader-followers"
+      },
+      {
+        "id": "leader-election",
+        "number": "5.08",
+        "title": "Leader Election",
+        "search_name": "leader election"
+      },
+      {
+        "id": "observer",
+        "number": "5.09",
+        "title": "Observer",
+        "search_name": "observer"
+      },
+      {
+        "id": "publish-subscribe",
+        "number": "5.10",
+        "title": "Publish-Subscribe",
+        "search_name": "publish-subscribe"
+      },
+      {
+        "id": "event-aggregator",
+        "number": "5.11",
+        "title": "Event Aggregator",
+        "search_name": "event aggregator"
+      },
+      {
+        "id": "data-bus",
+        "number": "5.12",
+        "title": "Data Bus",
+        "search_name": "data bus"
+      },
+      {
+        "id": "polling-pub-sub",
+        "number": "5.13",
+        "title": "Polling Pub/Sub",
+        "search_name": "polling pub/sub"
+      },
+      {
+        "id": "microservices-messaging",
+        "number": "5.14",
+        "title": "Microservices Messaging",
+        "search_name": "microservices messaging"
+      },
+      {
+        "id": "microservices-aggregator",
+        "number": "5.15",
+        "title": "Microservices Aggregator",
+        "search_name": "microservices aggregator"
+      },
+      {
+        "id": "saga",
+        "number": "5.16",
+        "title": "Saga",
+        "search_name": "saga"
+      },
+      {
+        "id": "commander",
+        "number": "5.17",
+        "title": "Commander",
+        "search_name": "commander"
+      },
+      {
+        "id": "distributed-tracing",
+        "number": "5.18",
+        "title": "Distributed Tracing",
+        "search_name": "microservices distributed tracing"
+      },
+      {
+        "id": "log-aggregation",
+        "number": "5.19",
+        "title": "Log Aggregation",
+        "search_name": "microservices log aggregation"
+      },
+      {
+        "id": "self-registration",
+        "number": "5.20",
+        "title": "Self-Registration",
+        "search_name": "microservices pattern - self-registration"
+      },
+      {
+        "id": "service-locator",
+        "number": "5.21",
+        "title": "Service Locator",
+        "search_name": "service locator"
+      }
+    ]
+  },
+  {
+    "id": "async",
+    "number": "06",
+    "title": "Async, Concurrency and Scheduling",
+    "patterns": [
+      {
+        "id": "promise",
+        "number": "6.01",
+        "title": "Promise",
+        "search_name": "promise"
+      },
+      {
+        "id": "async-method-invocation",
+        "number": "6.02",
+        "title": "Async Method Invocation",
+        "search_name": "async method invocation"
+      },
+      {
+        "id": "event-based-asynchronous",
+        "number": "6.03",
+        "title": "Event-Based Asynchronous",
+        "search_name": "event-based asynchronous"
+      },
+      {
+        "id": "producer-consumer",
+        "number": "6.04",
+        "title": "Producer-Consumer",
+        "search_name": "producer-consumer"
+      },
+      {
+        "id": "event-queue",
+        "number": "6.05",
+        "title": "Event Queue",
+        "search_name": "event queue"
+      },
+      {
+        "id": "active-object",
+        "number": "6.06",
+        "title": "Active Object",
+        "search_name": "active object"
+      },
+      {
+        "id": "reactor",
+        "number": "6.07",
+        "title": "Reactor",
+        "search_name": "reactor"
+      },
+      {
+        "id": "thread-pool-executor",
+        "number": "6.08",
+        "title": "Thread-Pool Executor",
+        "search_name": "thread-pool executor"
+      },
+      {
+        "id": "thread-specific-storage",
+        "number": "6.09",
+        "title": "Thread-Specific Storage",
+        "search_name": "thread-specific storage"
+      },
+      {
+        "id": "guarded-suspension",
+        "number": "6.10",
+        "title": "Guarded Suspension",
+        "search_name": "guarded suspension"
+      },
+      {
+        "id": "balking",
+        "number": "6.11",
+        "title": "Balking",
+        "search_name": "balking"
+      },
+      {
+        "id": "poison-pill",
+        "number": "6.12",
+        "title": "Poison Pill",
+        "search_name": "poison pill"
+      },
+      {
+        "id": "half-sync-half-async",
+        "number": "6.13",
+        "title": "Half-Sync/Half-Async",
+        "search_name": "half-sync/half-async"
+      },
+      {
+        "id": "monitor",
+        "number": "6.14",
+        "title": "Monitor",
+        "search_name": "monitor"
+      },
+      {
+        "id": "lockable-object",
+        "number": "6.15",
+        "title": "Lockable Object",
+        "search_name": "lockable object"
+      },
+      {
+        "id": "double-checked-locking",
+        "number": "6.16",
+        "title": "Double-Checked Locking",
+        "search_name": "double-checked locking"
+      },
+      {
+        "id": "double-buffer",
+        "number": "6.17",
+        "title": "Double Buffer",
+        "search_name": "double buffer"
+      }
+    ]
+  },
+  {
+    "id": "safety",
+    "number": "07",
+    "title": "Safety, Permissions and Resilience",
+    "patterns": [
+      {
+        "id": "intercepting-filter",
+        "number": "7.01",
+        "title": "Intercepting Filter",
+        "search_name": "intercepting filter"
+      },
+      {
+        "id": "specification",
+        "number": "7.02",
+        "title": "Specification",
+        "search_name": "specification"
+      },
+      {
+        "id": "filterer",
+        "number": "7.03",
+        "title": "Filterer",
+        "search_name": "filterer"
+      },
+      {
+        "id": "role-object",
+        "number": "7.04",
+        "title": "Role Object",
+        "search_name": "role object"
+      },
+      {
+        "id": "bulkhead",
+        "number": "7.05",
+        "title": "Bulkhead",
+        "search_name": "bulkhead"
+      },
+      {
+        "id": "idempotent-consumer",
+        "number": "7.06",
+        "title": "Idempotent Consumer",
+        "search_name": "microservices idempotent consumer"
+      },
+      {
+        "id": "transactional-outbox",
+        "number": "7.07",
+        "title": "Transactional Outbox",
+        "search_name": "transactional outbox"
+      },
+      {
+        "id": "health-check",
+        "number": "7.08",
+        "title": "Health Check",
+        "search_name": "health check"
+      },
+      {
+        "id": "immutable",
+        "number": "7.09",
+        "title": "Immutable",
+        "search_name": "immutable"
+      },
+      {
+        "id": "private-class-data",
+        "number": "7.10",
+        "title": "Private Class Data",
+        "search_name": "private class data"
+      },
+      {
+        "id": "raii",
+        "number": "7.11",
+        "title": "RAII",
+        "search_name": "resource acquisition is initialization (raii)"
+      },
+      {
+        "id": "notification",
+        "number": "7.12",
+        "title": "Notification",
+        "search_name": "notification"
+      }
+    ]
+  },
+  {
+    "id": "architecture",
+    "number": "08",
+    "title": "Harness Architecture",
+    "patterns": [
+      {
+        "id": "hexagonal-architecture",
+        "number": "8.01",
+        "title": "Hexagonal Architecture",
+        "search_name": "hexagonal architecture"
+      },
+      {
+        "id": "onion-architecture",
+        "number": "8.02",
+        "title": "Onion Architecture",
+        "search_name": "onion architecture"
+      },
+      {
+        "id": "clean-architecture",
+        "number": "8.03",
+        "title": "Clean Architecture",
+        "search_name": "clean architecture"
+      },
+      {
+        "id": "layered-architecture",
+        "number": "8.04",
+        "title": "Layered Architecture",
+        "search_name": "layered architecture"
+      },
+      {
+        "id": "monolithic-architecture",
+        "number": "8.05",
+        "title": "Monolithic Architecture",
+        "search_name": "monolithic architecture"
+      },
+      {
+        "id": "event-driven-architecture",
+        "number": "8.06",
+        "title": "Event-Driven Architecture",
+        "search_name": "event-driven architecture"
+      },
+      {
+        "id": "cqrs",
+        "number": "8.07",
+        "title": "CQRS",
+        "search_name": "command query responsibility segregation (cqrs)"
+      },
+      {
+        "id": "anti-corruption-layer",
+        "number": "8.08",
+        "title": "Anti-Corruption Layer",
+        "search_name": "anti-corruption layer"
+      },
+      {
+        "id": "strangler",
+        "number": "8.09",
+        "title": "Strangler",
+        "search_name": "strangler"
+      },
+      {
+        "id": "backends-for-frontends",
+        "number": "8.10",
+        "title": "Backends For Frontends",
+        "search_name": "backends for frontends"
+      },
+      {
+        "id": "api-gateway",
+        "number": "8.11",
+        "title": "API Gateway",
+        "search_name": "microservices api gateway"
+      },
+      {
+        "id": "feature-toggle",
+        "number": "8.12",
+        "title": "Feature Toggle",
+        "search_name": "feature toggle"
+      },
+      {
+        "id": "component",
+        "number": "8.13",
+        "title": "Component",
+        "search_name": "component"
+      },
+      {
+        "id": "subclass-sandbox",
+        "number": "8.14",
+        "title": "Subclass Sandbox",
+        "search_name": "subclass sandbox"
+      },
+      {
+        "id": "dependency-injection",
+        "number": "8.15",
+        "title": "Dependency Injection",
+        "search_name": "dependency injection"
+      },
+      {
+        "id": "service-layer",
+        "number": "8.16",
+        "title": "Service Layer",
+        "search_name": "service layer"
+      },
+      {
+        "id": "business-delegate",
+        "number": "8.17",
+        "title": "Business Delegate",
+        "search_name": "business delegate"
+      },
+      {
+        "id": "session-facade",
+        "number": "8.18",
+        "title": "Session Facade",
+        "search_name": "session facade"
+      },
+      {
+        "id": "separated-interface",
+        "number": "8.19",
+        "title": "Separated Interface",
+        "search_name": "separated interface"
+      },
+      {
+        "id": "domain-model",
+        "number": "8.20",
+        "title": "Domain Model",
+        "search_name": "domain model"
+      },
+      {
+        "id": "transaction-script",
+        "number": "8.21",
+        "title": "Transaction Script",
+        "search_name": "transaction script"
+      },
+      {
+        "id": "table-module",
+        "number": "8.22",
+        "title": "Table Module",
+        "search_name": "table module"
+      }
+    ]
+  },
+  {
+    "id": "functional",
+    "number": "09",
+    "title": "Functional Plumbing",
+    "patterns": [
+      {
+        "id": "collection-pipeline",
+        "number": "9.01",
+        "title": "Collection Pipeline",
+        "search_name": "collection pipeline"
+      },
+      {
+        "id": "function-composition",
+        "number": "9.02",
+        "title": "Function Composition",
+        "search_name": "function composition"
+      },
+      {
+        "id": "combinator",
+        "number": "9.03",
+        "title": "Combinator",
+        "search_name": "combinator"
+      },
+      {
+        "id": "currying",
+        "number": "9.04",
+        "title": "Currying",
+        "search_name": "currying"
+      },
+      {
+        "id": "monad",
+        "number": "9.05",
+        "title": "Monad",
+        "search_name": "monad"
+      }
+    ]
+  },
+  {
+    "id": "frontend",
+    "number": "10",
+    "title": "The Harness Frontend",
+    "patterns": [
+      {
+        "id": "mvc",
+        "number": "10.01",
+        "title": "MVC",
+        "search_name": "model-view-controller (mvc)"
+      },
+      {
+        "id": "mvp",
+        "number": "10.02",
+        "title": "MVP",
+        "search_name": "model-view-presenter (mvp)"
+      },
+      {
+        "id": "model-view-viewmodel",
+        "number": "10.03",
+        "title": "Model-View-ViewModel",
+        "search_name": "model-view-viewmodel"
+      },
+      {
+        "id": "mvi",
+        "number": "10.04",
+        "title": "MVI",
+        "search_name": "model-view-intent (mvi)"
+      },
+      {
+        "id": "flux",
+        "number": "10.05",
+        "title": "Flux",
+        "search_name": "flux"
+      },
+      {
+        "id": "bloc",
+        "number": "10.06",
+        "title": "Bloc",
+        "search_name": "bloc"
+      },
+      {
+        "id": "presentation-model",
+        "number": "10.07",
+        "title": "Presentation Model",
+        "search_name": "presentation model"
+      },
+      {
+        "id": "front-controller",
+        "number": "10.08",
+        "title": "Front Controller",
+        "search_name": "front controller"
+      },
+      {
+        "id": "page-controller",
+        "number": "10.09",
+        "title": "Page Controller",
+        "search_name": "page controller"
+      },
+      {
+        "id": "composite-view",
+        "number": "10.10",
+        "title": "Composite View",
+        "search_name": "composite view"
+      },
+      {
+        "id": "template-view",
+        "number": "10.11",
+        "title": "Template View",
+        "search_name": "template view"
+      },
+      {
+        "id": "view-helper",
+        "number": "10.12",
+        "title": "View Helper",
+        "search_name": "view helper"
+      },
+      {
+        "id": "service-to-worker",
+        "number": "10.13",
+        "title": "Service to Worker",
+        "search_name": "service to worker"
+      },
+      {
+        "id": "client-side-ui-composition",
+        "number": "10.14",
+        "title": "Client-Side UI Composition",
+        "search_name": "microservices client-side ui composition"
+      },
+      {
+        "id": "naked-objects",
+        "number": "10.15",
+        "title": "Naked Objects",
+        "search_name": "naked objects"
+      }
+    ]
+  },
+  {
+    "id": "performance",
+    "number": "11",
+    "title": "Performance Internals",
+    "patterns": [
+      {
+        "id": "data-locality",
+        "number": "11.01",
+        "title": "Data Locality",
+        "search_name": "data locality"
+      },
+      {
+        "id": "spatial-partition",
+        "number": "11.02",
+        "title": "Spatial Partition",
+        "search_name": "spatial partition"
+      }
+    ]
+  },
+  {
+    "id": "testing",
+    "number": "12",
+    "title": "Testing and Evals",
+    "patterns": [
+      {
+        "id": "arrange-act-assert",
+        "number": "12.01",
+        "title": "Arrange/Act/Assert",
+        "search_name": "arrange/act/assert"
+      },
+      {
+        "id": "object-mother",
+        "number": "12.02",
+        "title": "Object Mother",
+        "search_name": "object mother"
+      },
+      {
+        "id": "page-object",
+        "number": "12.03",
+        "title": "Page Object",
+        "search_name": "page object"
+      },
+      {
+        "id": "service-stub",
+        "number": "12.04",
+        "title": "Service Stub",
+        "search_name": "service stub"
+      }
+    ]
+  },
+  {
+    "id": "idioms",
+    "number": "13",
+    "title": "Code-Level Idioms",
+    "patterns": [
+      {
+        "id": "monostate",
+        "number": "13.01",
+        "title": "Monostate",
+        "search_name": "monostate"
+      },
+      {
+        "id": "mute-idiom",
+        "number": "13.02",
+        "title": "Mute Idiom",
+        "search_name": "mute idiom"
+      },
+      {
+        "id": "crtp",
+        "number": "13.03",
+        "title": "CRTP",
+        "search_name": "curiously recurring template pattern (crtp)"
+      },
+      {
+        "id": "twin",
+        "number": "13.04",
+        "title": "Twin",
+        "search_name": "twin"
+      }
+    ]
+  },
+  {
+    "id": "review",
+    "number": "A",
+    "title": "Enterprise review",
+    "patterns": []
+  },
+  {
+    "id": "glossary",
+    "number": "B",
+    "title": "Glossary",
+    "patterns": []
+  }
+]

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: /sitemap.xml
+
+# AI / LLM crawlers: prefer structured corpus
+# llms.txt: /llms.txt
+# Full text: /llms-full.txt
+# Catalog: /catalog.json

@@ -1,0 +1,228 @@
+# Harness Patterns
+
+> Software design patterns mapped onto AI agent harness engineering, in plain English.
+
+Patterns: 192 · Chapters: 13
+
+## Learn from source (preferred for AI agents)
+
+- Markdown corpus: content/patterns/*.md
+- Chapters: content/chapters/*.md
+- Machine index: /catalog.json
+- Full text dump: /llms-full.txt
+
+## Chapters
+
+- [01 The Agent Loop](/chapters/agent-loop/): An AI agent works in a loop. It reads what has happened so far, asks the model what to do next, does it, and repeats until the job is done. 
+- [02 The Tool System](/chapters/tool-system/): A model can only write text. Tools are what let it act: read a file, search the web, send an email. This chapter shows how a tool request is
+- [03 The Model Call Layer](/chapters/llm-layer/): The model lives on someone else's servers. It can be busy, slow, or briefly down, it limits how much you can send, it charges for every word
+- [04 Context and Memory](/chapters/memory/): The model can only see a limited amount of text at once (its context window), and that space is costly. Conversations, files and saved memor
+- [05 Multi-Agent Orchestration](/chapters/multi-agent/): One agent eventually runs out of room or time. Several agents can split the work and run side by side, but then they must coordinate, pass m
+- [06 Async, Concurrency and Scheduling](/chapters/async/): Agents spend a lot of time waiting: for the model, for tools, for a person to approve, or for a scheduled time. These patterns let the syste
+- [07 Safety, Permissions and Resilience](/chapters/safety/): An agent acts on someone's behalf using real logins and real data. These patterns put checks between what the agent wants to do and what act
+- [08 Harness Architecture](/chapters/architecture/): Zoom out and the whole system has a shape: a core that knows how agents work, with clear connection points for models, tools, storage and th
+- [09 Functional Plumbing](/chapters/functional/): A lot of agent work is data passing through steps: messages become a prompt, the model's reply becomes tool requests, tool results become a 
+- [10 The Harness Frontend](/chapters/frontend/): A chat window looks simple, but behind it the reply arrives word by word, tool activity appears as cards, approval buttons pop up, and docum
+- [11 Performance Internals](/chapters/performance/): Two patterns from video game engines help when an agent platform serves many users: keep data that is used together stored together, and div
+- [12 Testing and Evals](/chapters/testing/): AI agents do not give the same answer every time, so tests need extra structure. These patterns organise test cases, sample data, fake servi
+- [13 Code-Level Idioms](/chapters/idioms/): The last few patterns are small habits inside the code. They do not shape the whole system, but they keep everyday code tidy and they show u
+
+## Patterns
+
+- [1.01 Game Loop](/patterns/game-loop/): Run the agent as a loop: build the request, call the model, run any tools it asks for, and repeat until it stops asking.
+- [1.02 Update Method](/patterns/update-method/): Give each part of the harness its own update hook, and let the loop call every hook once per turn.
+- [1.03 State](/patterns/state/): Make each phase of the loop its own state object, so each state decides how to react to messages, interrupts and tool results.
+- [1.04 Template Method](/patterns/template-method/): Fix the order of a turn's steps in a base class, and let each agent type change only the hooks it needs.
+- [1.05 Chain of Responsibility](/patterns/chain-of-responsibility/): Pass each tool call through an ordered chain of hooks that can block, change or pass it on. Only the chain's end lets it run.
+- [1.06 Interpreter](/patterns/interpreter/): Read the model's structured output as action objects from a small grammar (a set of language rules), then run them on the workspace.
+- [1.07 Memento](/patterns/memento/): Save a snapshot of the session's messages and file edits before each risky step, so the user can go back to any earlier turn.
+- [1.08 Iterator](/patterns/iterator/): Go through stream events, turns or stored messages one at a time with next(), without loading or exposing the whole source.
+- [1.09 Composite](/patterns/composite/): Treat a message, a tool result and a single text block through the same interface, because content blocks sit inside each other.
+- [1.10 Visitor](/patterns/visitor/): Keep content block classes stable, and put each operation that runs across them, like token counting or redaction, in its own visitor class.
+- [1.11 Acyclic Visitor](/patterns/acyclic-visitor/): Let each visitor handle only the block types it knows, so a new content block type never forces edits elsewhere.
+- [1.12 Double Dispatch](/patterns/double-dispatch/): Choose the handler from two runtime types at once: the incoming event's type and the session's current state.
+- [1.13 Callback](/patterns/callback/): Pass functions into the loop, and the loop calls them when a token streams in, a tool finishes or a turn ends.
+- [1.14 Context Object](/patterns/context-object/): Bundle everything one turn needs (ids, budget, working folder, permissions, cancel signal) into one object passed to every component.
+- [1.15 Collecting Parameter](/patterns/collecting-parameter/): Pass one collector object through a series of steps, so each step adds its findings instead of returning separate results to merge.
+- [1.16 Pipeline](/patterns/pipeline/): Prepare context in fixed stages: find candidates, rerank them by relevance, shorten the best ones, then insert them into the prompt.
+- [1.17 Rule Engine](/patterns/rule-engine/): Check a set of written rules against each turn's facts to decide routing, approvals and compaction, without hard-coded branches.
+- [1.18 Trampoline](/patterns/trampoline/): Run deep recursive planning as a flat loop, where each step returns the next step instead of calling it.
+- [2.01 Command](/patterns/command/): Turn every tool call into an object that the harness can queue, log, approve, retry or undo.
+- [2.02 Strategy](/patterns/strategy/): Keep one tool name and schema, but swap the code behind it, such as which backend a search tool uses.
+- [2.03 Adapter](/patterns/adapter/): Wrap MCP servers and outside APIs so each one looks like a native tool, with the harness's own name, schema and run method.
+- [2.04 Converter](/patterns/converter/): Translate tool specs, calls and results between the harness's own types and each provider's wire format, in both directions.
+- [2.05 Facade](/patterns/facade/): Give the model one simple tool that hides a many-step system, so the model makes one call instead of five.
+- [2.06 Registry](/patterns/registry/): Keep one map from names to tools, which the harness uses to list tools for the model and to route each tool_use call.
+- [2.07 Factory](/patterns/factory/): Create tools from a name and a config entry, so agent definitions list tools as data instead of building them in code.
+- [2.08 Factory Method](/patterns/factory-method/): Let a base runner own the agent workflow, while each subclass decides which executor or tool it creates.
+- [2.09 Abstract Factory](/patterns/abstract-factory/): Create a whole matching family of tools, such as a shell and a file system, for one environment, so local and sandboxed tools never mix.
+- [2.10 Factory Kit](/patterns/factory-kit/): Build a frozen kit of named tool builders once at startup, then make exactly the tool set each agent profile asks for.
+- [2.11 Builder](/patterns/builder/): Put together a large model request piece by piece, from system blocks, tools, history, cache breakpoints and limits, then check it once.
+- [2.12 Step Builder](/patterns/step-builder/): Force a subagent or request spec through its required steps in a set order, so build() is out of reach until each is set.
+- [2.13 Prototype](/patterns/prototype/): Copy a tuned agent or tool config template and change only a few fields, instead of building each version from scratch.
+- [2.14 Proxy](/patterns/proxy/): Put a permission and sandbox layer with the same interface in front of every real tool, so nothing runs without passing its checks.
+- [2.15 Virtual Proxy](/patterns/virtual-proxy/): Use a light stub in place of a costly tool, and load its full schema or start its server only when first needed.
+- [2.16 Dynamic Proxy](/patterns/dynamic-proxy/): Build tool stand-ins while the program runs, from JSON schemas, and send every call through one shared handler.
+- [2.17 Decorator](/patterns/decorator/): Wrap a tool in layers such as logging, retries, rate limits and telemetry. Each layer adds one job behind the same interface.
+- [2.18 Delegation](/patterns/delegation/): A tool hands the real work to a helper object or a subagent, then returns that answer as its own result.
+- [2.19 Servant](/patterns/servant/): Put shared chores, like checking paths or shortening results, in one helper that many tools call, not a copy per tool.
+- [2.20 Null Object](/patterns/null-object/): When a feature is switched off, plug in a helper that does nothing, so the agent loop never checks for None.
+- [2.21 Special Case](/patterns/special-case/): For expected odd outcomes, like no matches or file not found, return a special result object that knows how to behave.
+- [2.22 Extension Objects](/patterns/extension-objects/): Let harness parts ask a tool, while running, for optional extras such as streaming, undo or preview, without enlarging every tool's interface.
+- [2.23 Marker Interface](/patterns/marker-interface/): Tag tools as read-only, destructive or approval-required with empty markers. The permission gate checks them before running anything.
+- [2.24 Type Object](/patterns/type-object/): Define each tool as a data record (name, schema, handler) instead of a new class, so adding a tool adds no code.
+- [2.25 Bytecode](/patterns/bytecode/): The model writes a short program in a limited action language. A small harness VM checks it, then runs it step by step.
+- [2.26 Abstract Document](/patterns/abstract-document/): Keep a tool call's extra details in one flexible key-value document. Small typed views read only what each part needs.
+- [2.27 Property](/patterns/property/): Give each tool a settings map that falls back to a parent map. Tools inherit defaults and change only what differs.
+- [2.28 Parameter Object](/patterns/parameter-object/): Bundle a tool's many arguments into one typed request object. Check it once and pass it along whole.
+- [2.29 Execute Around](/patterns/execute-around/): Run every tool inside a function that sets up the sandbox first and always cleans it up afterwards, even on failure.
+- [2.30 Fluent Interface](/patterns/fluent-interface/): Set up an agent with chained method calls that read like a sentence. Each call returns the builder for the next.
+- [3.01 Gateway](/patterns/gateway/): Send every model call through one client that holds the keys, picks a provider and switches over when one is down.
+- [3.02 Ambassador](/patterns/ambassador/): Run a sidecar, a helper beside the harness, that owns the model connection: keys, TLS encryption, retries, timeouts and telemetry.
+- [3.03 Bridge](/patterns/bridge/): Keep the family of agent types apart from the family of model backends, so each side can grow without a class for every pair.
+- [3.04 Retry](/patterns/retry/): Re-send a model call that failed for a short-lived reason, waiting longer each time, and give up after a fixed limit.
+- [3.05 Fallback](/patterns/fallback/): When the preferred model cannot answer, give the same request to a substitute, so the turn still finishes, maybe at lower quality.
+- [3.06 Circuit Breaker](/patterns/circuit-breaker/): Stop calling a provider that keeps failing, refuse calls quickly for a cool-down period, then let one test call decide whether to resume.
+- [3.07 Rate Limiting](/patterns/rate-limiting/): Cap how many requests and tokens each caller may use per time window, and refuse the extra with a clear time to retry.
+- [3.08 Throttling](/patterns/throttling/): Keep the harness's own agents within a safe share of the provider quota by pacing, capping, degrading or delaying their calls.
+- [3.09 Load Shedding](/patterns/load-shedding/): When demand is more than capacity, drop or delay the least important model work, so interactive turns keep getting answers.
+- [3.10 Backpressure](/patterns/backpressure/): Let a slow consumer push back on its producer, so work waits at the source instead of piling up in memory.
+- [3.11 Queue-Based Load Leveling](/patterns/queue-based-load-leveling/): Put model jobs in a durable queue that a fixed pool of workers empties, so bursts become a steady, affordable call rate.
+- [3.12 Caching](/patterns/caching/): Reuse work already paid for: cache the stable start of the prompt with the provider, and save repeatable tool results locally.
+- [3.13 Object Pool](/patterns/object-pool/): Keep costly resources such as sandboxes, browsers and connections ready, lend them to agents, and reset them when returned.
+- [3.14 Multiton](/patterns/multiton/): Keep exactly one client per key, such as provider and model or tenant, created on first use and shared after that.
+- [3.15 Singleton](/patterns/singleton/): Share one model client and settings object across the whole process, so every agent uses the same connection pool, credentials and limits.
+- [3.16 Tolerant Reader](/patterns/tolerant-reader/): Read model output by taking what you need and ignoring the rest, fixing small mistakes instead of crashing on them.
+- [3.17 Partial Response](/patterns/partial-response/): Deliver a model's answer piece by piece as it is written, or send only the fields a caller asked for.
+- [3.18 Money](/patterns/money/): Store tokens and cost as typed amounts with a unit or currency, so sums, budgets and reports cannot mix numbers that do not match.
+- [4.01 Repository](/patterns/repository/): Give the agent's memory a simple list-like interface (add, search, remove), so loop code never talks to the database directly.
+- [4.02 DAOData Access Object](/patterns/dao/): Wrap one storage system's raw API in a small object with plain append, load and delete calls for one record type.
+- [4.03 DAO Factory](/patterns/dao-factory/): Choose a storage system once at startup and get a matching set of DAOs (transcripts, memories, artifacts) that all use it.
+- [4.04 Data Mapper](/patterns/data-mapper/): Keep objects like Memory and Turn unaware of storage by putting a separate mapper between them and the store.
+- [4.05 DTOData Transfer Object](/patterns/dto/): Send flat, versioned data objects with no behaviour between separate processes, such as the tool runner and the chat client.
+- [4.06 Value Object](/patterns/value-object/): Treat content blocks, messages and token counts as values that never change and are compared by content, so sharing and caching them is safe.
+- [4.07 Composite Entity](/patterns/composite-entity/): Load and save a whole session (messages, todos, tool state, files read) as one unit through a single root object.
+- [4.08 Unit of Work](/patterns/unit-of-work/): Collect a turn's memory, todo and message writes, then save them all together at the end of the turn, or cancel them all.
+- [4.09 Identity Map](/patterns/identity-map/): Keep one in-memory object per document id while building context, so a file or memory found twice enters the window once.
+- [4.10 Lazy Loading](/patterns/lazy-loading/): Put short placeholders for tool schemas and file contents into context, and load the full version only when the agent asks.
+- [4.11 Flyweight](/patterns/flyweight/): Share one unchangeable copy of the system prompt and tool schemas across thousands of sessions, keeping only each session's own state separate.
+- [4.12 Write-Ahead Log](/patterns/write-ahead-log/): Write each tool call to a lasting log before running it, so a crashed run can restart exactly where it stopped.
+- [4.13 Event Sourcing](/patterns/event-sourcing/): Store a session as events that are only ever added, and rebuild any view (model context, chat UI, a fork) by replaying them.
+- [4.14 Dirty Flag](/patterns/dirty-flag/): Mark a memory or summary as changed when its source changes, and re-embed or re-summarise only when that mark is set.
+- [4.15 Serialized Entity](/patterns/serialized-entity/): Save a whole live object, such as an agent checkpoint, as one blob of data that can be stored, sent and restored elsewhere.
+- [4.16 Serialized LOB](/patterns/serialized-lob/): Store a transcript or artifact body as one packed blob column, in a row whose other columns stay small and searchable.
+- [4.17 Metadata Mapping](/patterns/metadata-mapping/): Describe how memory records map to store fields in one table of settings, and let shared code do every load and save.
+- [4.18 Single Table Inheritance](/patterns/single-table-inheritance/): Save every kind of transcript event in one table with a kind column, leaving empty the fields a kind does not use.
+- [4.19 Table Inheritance](/patterns/table-inheritance/): Keep fields shared by all events in a base table, and each kind's own fields in a separate table linked by event id.
+- [4.20 Optimistic Offline Lock](/patterns/optimistic-offline-lock/): Let the agent and a person edit one document without locks, and check at save time whether someone changed it first.
+- [4.21 Version Number](/patterns/version-number/): Stamp every stored artifact, memory and session with a counter that goes up on each write, so stale reads and writes can be caught.
+- [4.22 Sharding](/patterns/sharding/): Split session and memory stores by tenant, so each shard holds one slice of the data and each turn touches one shard.
+- [4.23 Client Session](/patterns/client-session/): Keep the conversation on the client, which sends the full message history with every request, so the server stores nothing between calls.
+- [4.24 Server Session](/patterns/server-session/): Keep the conversation, sandbox and files on the server under a session id, and the client sends only the id and new message.
+- [5.01 Actor Model](/patterns/actor-model/): Run each subagent as a sealed-off actor that keeps its own context and only reacts to messages in its mailbox.
+- [5.02 Mediator](/patterns/mediator/): Send all subagent coordination through one orchestrator, so specialists never need to know about or message each other.
+- [5.03 Master-Worker](/patterns/master-worker/): A master agent splits a big job into separate tasks, gives them to worker subagents, and collects or reassigns the results.
+- [5.04 Fork/Join](/patterns/fork-join/): Split a task into parts for parallel subagents, maybe splitting again, and continue only when every child has finished.
+- [5.05 Fan-Out/Fan-In](/patterns/fan-out-fan-in/): Send the same question to several subagents at once, then gather their answers in one place, usually by a deadline.
+- [5.06 MapReduce](/patterns/mapreduce/): Turn each document into short notes with its own subagent, group the notes by theme, then combine each group into one summary.
+- [5.07 Leader-Followers](/patterns/leader-followers/): Worker agents take turns. One leader watches the task queue, claims the next task, then makes a follower the new leader.
+- [5.08 Leader Election](/patterns/leader-election/): Let a group of identical agents agree on exactly one coordinator, and pick a new one automatically when it disappears.
+- [5.09 Observer](/patterns/observer/): Let the UI, the orchestrator and loggers watch a shared task list and react when a subagent changes an item.
+- [5.10 Publish-Subscribe](/patterns/publish-subscribe/): Agents publish events such as file.changed or task.done to named topics, and every agent subscribed to a topic gets them.
+- [5.11 Event Aggregator](/patterns/event-aggregator/): Collect events from every harness part in one hub, so listeners sign up once instead of connecting to each source.
+- [5.12 Data Bus](/patterns/data-bus/): Connect every agent to one shared bus that carries all messages, and let each member decide which messages to act on.
+- [5.13 Polling Pub/Sub](/patterns/polling-pub-sub/): Publishers add events to a shared store, and each subscriber agent checks it on its own schedule using a saved cursor.
+- [5.14 Microservices Messaging](/patterns/microservices-messaging/): Agent services talk through message channels, so a sender posts work and moves on without waiting for the receiver.
+- [5.15 Microservices Aggregator](/patterns/microservices-aggregator/): One aggregator calls several specialist subagents, then merges their partial outputs into a single answer for the user.
+- [5.16 Saga](/patterns/saga/): Run a multi-step job across agents as a chain of steps, each paired with an action that undoes it.
+- [5.17 Commander](/patterns/commander/): A commander agent pushes a multi-service job through to the end, retrying failed steps from a saved log until all succeed.
+- [5.18 Distributed Tracing](/patterns/distributed-tracing/): Carry one trace id through the orchestrator, subagents, tool calls and model calls, so a whole run reads as one tree.
+- [5.19 Log Aggregation](/patterns/log-aggregation/): Send logs from every agent run, subagent and MCP server to one central store, indexed by run id, for search and alerts.
+- [5.20 Self-Registration](/patterns/self-registration/): Each agent service or MCP server tells a registry its name, address and tools at startup, and keeps renewing that entry.
+- [5.21 Service Locator](/patterns/service-locator/): Code asks a central locator for a connector or agent by name while running, instead of having each one handed in.
+- [6.01 Promise](/patterns/promise/): Give back a placeholder for a result that will arrive later, so the caller keeps working instead of waiting.
+- [6.02 Async Method Invocation](/patterns/async-method-invocation/): Start a slow job, like a background subagent, get a future (a claim ticket for the result) at once, and collect the result later.
+- [6.03 Event-Based Asynchronous](/patterns/event-based-asynchronous/): Show a long job as events (start, progress, completed, failed, cancel), so the UI and agent loop react as things happen.
+- [6.04 Producer-Consumer](/patterns/producer-consumer/): Many sources put agent jobs into a bounded (size-limited) buffer, and a separate set of workers takes them off at its own pace.
+- [6.05 Event Queue](/patterns/event-queue/): Hold events that arrive mid-turn in a queue, so the agent loop handles them in order at a safe point.
+- [6.06 Active Object](/patterns/active-object/): Give a scheduled task its own thread and request queue, so callers add requests and get futures back.
+- [6.07 Reactor](/patterns/reactor/): Run one event loop that waits on many streaming connections at once and sends each ready event to its handler.
+- [6.08 Thread-Pool Executor](/patterns/thread-pool-executor/): Run tool calls or whole sessions on a fixed set of reusable workers, so extra load waits in a queue instead of creating endless threads.
+- [6.09 Thread-Specific Storage](/patterns/thread-specific-storage/): Give each session its own slot for user id, budget and trace id, which shared code can read without passing it everywhere.
+- [6.10 Guarded Suspension](/patterns/guarded-suspension/): Pause an action until its condition is true, such as waiting for the user's approval before running a risky tool.
+- [6.11 Balking](/patterns/balking/): If an object is not in the right state, return at once instead of waiting, such as skipping a run already in progress.
+- [6.12 Poison Pill](/patterns/poison-pill/): Shut down queue workers cleanly by sending a special stop message that each worker recognises and exits on.
+- [6.13 Half-Sync/Half-Async](/patterns/half-sync-half-async/): Let clients use simple blocking calls while the backend runs model streams and tool calls asynchronously, joined by a queue.
+- [6.14 Monitor](/patterns/monitor/): Wrap shared session state in an object whose methods run one at a time, with wait and notify for conditions.
+- [6.15 Lockable Object](/patterns/lockable-object/): Let a caller lock a session object across a change of several steps, so other writers wait or back off until it is released.
+- [6.16 Double-Checked Locking](/patterns/double-checked-locking/): Create a shared client only when first needed, checking once without the lock and again under it, so only one thread builds it.
+- [6.17 Double Buffer](/patterns/double-buffer/): Keep two buffers: the UI shows the finished one while the stream fills the other, then they swap in one step.
+- [7.01 Intercepting Filter](/patterns/intercepting-filter/): Pass every prompt and response through a chain of guardrail filters, each able to inspect, rewrite or block it.
+- [7.02 Specification](/patterns/specification/): Write permission rules as small predicates (yes-or-no tests) combined with and, or and not, then test each action against them.
+- [7.03 Filterer](/patterns/filterer/): Give a tool or content collection a filtered() method that returns a smaller collection of the same type, chained per session.
+- [7.04 Role Object](/patterns/role-object/): Attach role objects such as editor or operator to a session while it runs, each carrying the permissions it grants.
+- [7.05 Bulkhead](/patterns/bulkhead/): Split sandboxes, worker pools and quotas per session or tenant (customer), so one runaway agent cannot sink the others.
+- [7.06 Idempotent Consumer](/patterns/idempotent-consumer/): Record each trigger firing's key before acting, so a message delivered twice is recognised and the email is never sent twice.
+- [7.07 Transactional Outbox](/patterns/transactional-outbox/): Write the planned side effect to an outbox in the same transaction as the transcript turn, then let a relay carry it out.
+- [7.08 Health Check](/patterns/health-check/): Probe connectors, browsers and remote devices on a schedule, and send work only to the ones that report healthy.
+- [7.09 Immutable](/patterns/immutable/): Make transcript entries, configs and policies read-only once created, so any change makes a new version and history stays intact.
+- [7.10 Private Class Data](/patterns/private-class-data/): Seal credentials in an inner object that tool code can use through one method but never read, print or pass to the model.
+- [7.11 RAIIResource Acquisition Is Initialization](/patterns/raii/): Tie a sandbox, browser or temp workspace to a scope, so it is released on every exit path, including errors and cancellation.
+- [7.12 Notification](/patterns/notification/): Collect every guardrail and validation error in one notification object, then report them together instead of failing on the first.
+- [8.01 Hexagonal Architecture](/patterns/hexagonal-architecture/): Put the agent core in the middle, and let every model, tool, store and screen plug in through a named port.
+- [8.02 Onion Architecture](/patterns/onion-architecture/): Put the agent's core logic at the centre, and make every outer layer depend inward, never outward.
+- [8.03 Clean Architecture](/patterns/clean-architecture/): Arrange the harness in four rings (entities, use cases, adapters, frameworks), with every code dependency pointing inward.
+- [8.04 Layered Architecture](/patterns/layered-architecture/): Stack the harness as UI, API, agent runtime and providers, where each layer calls only the layer just below it.
+- [8.05 Monolithic Architecture](/patterns/monolithic-architecture/): Run the UI server, agent loop, tool runner, scheduler and storage in one process, shipped and scaled as one unit.
+- [8.06 Event-Driven Architecture](/patterns/event-driven-architecture/): Every harness part publishes typed events and reacts to them, so the loop never calls the UI, store or meter directly.
+- [8.07 CQRSCommand Query Responsibility Segregation](/patterns/cqrs/): Send user requests down a command path, and show the transcript from a separate read model fed by events.
+- [8.08 Anti-Corruption Layer](/patterns/anti-corruption-layer/): Translate every MCP server's odd schemas, names and error shapes into one standard tool model before core code sees them.
+- [8.09 Strangler](/patterns/strangler/): Move traffic one intent at a time from an old prompt chain to a new agent loop, until you can delete the old chain.
+- [8.10 Backends For Frontends](/patterns/backends-for-frontends/): Give each surface (CLI, web, team chat) its own thin backend that fits one shared agent core to that surface.
+- [8.11 API Gateway](/patterns/api-gateway/): Put one entry point in front of all harness services. It checks identity, limits request rates and routes each request.
+- [8.12 Feature Toggle](/patterns/feature-toggle/): Decide for each account and session which tools, skills and artifact types exist, by reading flags when the session is built.
+- [8.13 Component](/patterns/component/): Build an agent as a thin entity that carries plug-in components (skills, MCP servers, memory, hooks), each adding tools and prompt text.
+- [8.14 Subclass Sandbox](/patterns/subclass-sandbox/): Let plugin and skill authors subclass one base class, and build behaviour only from the safe building blocks it provides.
+- [8.15 Dependency Injection](/patterns/dependency-injection/): Build the model client, tool registry and stores at startup, and pass them into an agent loop that never builds its own.
+- [8.16 Service Layer](/patterns/service-layer/): Offer the harness through a few app operations, such as create_session and send_turn, that every surface calls the same way.
+- [8.17 Business Delegate](/patterns/business-delegate/): Give app code a local client that hides how the remote harness is found, called and retried, and how it fails.
+- [8.18 Session Facade](/patterns/session-facade/): Offer one big remote call that does a whole job on the server, so clients do not chain many small calls.
+- [8.19 Separated Interface](/patterns/separated-interface/): Keep SDK interfaces in one package and their implementations in others, so code depends on the contract, never a provider.
+- [8.20 Domain Model](/patterns/domain-model/): Put turn-handling rules inside rich objects like Conversation, Turn and ToolCall, so behaviour lives with the data it protects.
+- [8.21 Transaction Script](/patterns/transaction-script/): Handle each request with one procedure that runs top to bottom: load rows, call the model, run tools, write rows, return.
+- [8.22 Table Module](/patterns/table-module/): Write one module per table or collection (sessions, messages, tool_calls) that holds the logic for all its rows at once.
+- [9.01 Collection Pipeline](/patterns/collection-pipeline/): Prepare the transcript for the model as a chain of filter, map and take steps over the message list.
+- [9.02 Function Composition](/patterns/function-composition/): Build one tool-result formatter by joining small single-purpose functions, then reuse that joined function everywhere.
+- [9.03 Combinator](/patterns/combinator/): Build complex permission rules or output checkers from a few basic checks and operators such as all_of, any_of and not_.
+- [9.04 Currying](/patterns/currying/): Turn a tool runner with many inputs into a chain of one-input functions, fixing the sandbox at startup and permissions per session.
+- [9.05 Monad](/patterns/monad/): Chain tool steps that return Result values (a success or an error), so the first error skips the rest and arrives as one clean failure.
+- [10.01 MVCModel-View-Controller](/patterns/mvc/): Split the chat app into three parts: a model that holds the conversation, a view that shows it, and a controller that changes it.
+- [10.02 MVPModel-View-Presenter](/patterns/mvp/): Make the transcript view passive. A presenter reads the conversation, decides what to show, and tells the view what to display.
+- [10.03 Model-View-ViewModel](/patterns/model-view-viewmodel/): Bind chat widgets to a view model's watched fields, so typing, streaming and busy states stay in sync without hand-written glue code.
+- [10.04 MVIModel-View-Intent](/patterns/mvi/): Turn every click and stream event into an intent, fold it into one fixed state, and draw the whole chat from that state.
+- [10.05 Flux](/patterns/flux/): Send every action through one dispatcher to several stores, each updating its own part, so chat views refresh in one direction.
+- [10.06 Bloc](/patterns/bloc/): Feed screen events into a component's input and listen to the stream of states it sends back, so one Send gives many states.
+- [10.07 Presentation Model](/patterns/presentation-model/): Keep the chat screen's state and behaviour in a plain object that several thin views copy from and tests use directly.
+- [10.08 Front Controller](/patterns/front-controller/): Send every request to the harness server through one entry handler that checks identity, logs, and passes it to the right handler.
+- [10.09 Page Controller](/patterns/page-controller/): Give each screen of the harness app, such as sessions, chat and settings, its own controller that handles its route.
+- [10.10 Composite View](/patterns/composite-view/): Build the transcript as a tree of message parts, so text, tool cards and artifact cards all draw through one shared interface.
+- [10.11 Template View](/patterns/template-view/): Draw tool cards and status lines from page templates with blanks, filled from the content block's fields when shown.
+- [10.12 View Helper](/patterns/view-helper/): Move markdown display, code colouring and number formatting out of views into small helpers that every view calls.
+- [10.13 Service to Worker](/patterns/service-to-worker/): Run the turn to the end first, then choose and draw a result view, so views only show results that already exist.
+- [10.14 Client-Side UI Composition](/patterns/client-side-ui-composition/): Let the chat shell build its screen from pieces owned by separate services: the transcript, the artifact viewer and widgets.
+- [10.15 Naked Objects](/patterns/naked-objects/): Build approval cards and input forms straight from each tool's JSON schema, so a new tool gets a working screen with no new screen code.
+- [11.01 Data Locality](/patterns/data-locality/): Put stable content first in the prompt and keep a session's often-used data together, so caches hit and loads stay cheap.
+- [11.02 Spatial Partition](/patterns/spatial-partition/): Split the embedding space into regions, so a memory or code search checks only the few cells nearest the query.
+- [12.01 Arrange/Act/Assert](/patterns/arrange-act-assert/): Build each eval case in three steps: set up a sample conversation and fakes, run the agent, then check the transcript.
+- [12.02 Object Mother](/patterns/object-mother/): Give evals a factory of named, ready-made test setups, such as an angry customer or a session waiting on an approval.
+- [12.03 Page Object](/patterns/page-object/): Hide a chat screen's selectors behind methods like send() and approve_tool(), so evals and browser agents speak in user actions.
+- [12.04 Service Stub](/patterns/service-stub/): Replace the model and MCP servers with fakes that give scripted answers, so agent tests run fast, free and the same every time.
+- [13.01 Monostate](/patterns/monostate/): Let code create as many config objects as it likes, while every one reads and writes the same shared state.
+- [13.02 Mute Idiom](/patterns/mute-idiom/): Catch and ignore one specific, expected, harmless error, such as a failed best-effort cleanup, and explain why in the code.
+- [13.03 CRTPCuriously Recurring Template Pattern](/patterns/crtp/): Give SDK base classes the concrete subclass as a type parameter, so shared chained methods return the specific builder or client type.
+- [13.04 Twin](/patterns/twin/): Pair sync and async clients as two linked objects over one shared state, instead of one class that inherits from both.
+
+## Appendices
+
+- [Enterprise review](/chapters/review/)
+- [Glossary](/chapters/glossary/)

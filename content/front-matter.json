@@ -1,0 +1,85 @@
+{
+  "eyebrow": "A field manual for AI agent harness engineering",
+  "title_html": "Harness <em>Patterns</em>",
+  "title": "Harness Patterns",
+  "lede": "Software design patterns are tried-and-tested ways to solve common problems in code. This book takes every pattern in the classic catalog and shows where it fits when you build an AI agent system for a business. Each one comes with an everyday comparison, a picture, and a note on how large companies use it. The language is kept simple, and every technical word is explained when it first appears.",
+  "stats": [
+    {
+      "value": "192",
+      "label": "patterns"
+    },
+    {
+      "value": "13",
+      "label": "chapters"
+    },
+    {
+      "value": "192",
+      "label": "diagrams"
+    },
+    {
+      "value": "1",
+      "label": "enterprise review"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "First, what is an agent harness?",
+      "paragraphs": [
+        "An AI model on its own only reads text and writes text. An agent is a model that can also do things: look something up, edit a file, send a message, then decide what to do next. The harness is all the software around the model that makes this possible and safe. It sends the conversation to the model, runs the tools the model asks for, remembers what happened, checks permissions, and shows the results to people.",
+        "Think of the model as a skilled pilot and the harness as the aircraft, the control tower and the airport rules. The pilot makes the decisions, but nothing flies safely without everything around them."
+      ]
+    },
+    {
+      "heading": "The harness at a glance",
+      "paragraphs": [
+        "The chapters follow the main parts of a harness. Find the part you are building, then read that chapter."
+      ]
+    },
+    {
+      "heading": "How to read a diagram",
+      "paragraphs": [
+        "Shapes and colours mean the same thing on every page. A box with an orange outline is the pattern itself: the piece you would write. Orange arrows show the main path. Dashed arrows show something optional, delayed, or going back the other way."
+      ]
+    },
+    {
+      "heading": "How each entry works",
+      "paragraphs": []
+    }
+  ],
+  "howto": [
+    {
+      "title": "Everyday comparison",
+      "body": "A scene from daily life that works the same way."
+    },
+    {
+      "title": "Classic meaning",
+      "body": "What the pattern means in software in general."
+    },
+    {
+      "title": "In the agent system",
+      "body": "Where it appears when you build an agent, and why it helps."
+    },
+    {
+      "title": "In a large company",
+      "body": "How it is used in real business platforms, and what to be careful about."
+    },
+    {
+      "title": "Steps and code sketch",
+      "body": "What happens, in order, plus a few lines of simple example code for developers."
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "harness-map",
+      "figure_number": "Fig. 0.1",
+      "figure_caption": "The thirteen chapters mapped onto one agent harness",
+      "diagram": "harness-map.svg"
+    },
+    {
+      "id": "legend-1",
+      "figure_number": "Fig. 0.2",
+      "figure_caption": "Node kinds used throughout the book",
+      "diagram": "legend-1.svg"
+    }
+  ]
+}
